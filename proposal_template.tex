@@ -1,0 +1,55 @@
+\documentclass[12pt,conference,onecolumn]{IEEEtran}
+% N.B. your proposal's formatting requirements may differ
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{xspace}
+\usepackage{hyphenat} %Use this instead of a hyphen to allow the word itself to be hyphenated
+\usepackage{paralist}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{mathptmx}
+%\usepackage{titlesec}
+\usepackage[sort,nocompress]{cite} % autosort groups of citations
+\usepackage{lipsum} % TODO Remove this. It's just for the template
+
+\newcommand{\titleText}{
+    A Repo Template for Single-Column Proposals
+}
+\newcommand{\authorName}{Alyssa P. Hacker}
+
+
+\pdfinfo{
+    /Author (\authorName)
+    /Title  (\titleText)
+}
+
+\setlist*[enumerate,1]{label=\begingroup\itshape(\roman*)\endgroup}
+
+\begin{document}
+
+% Just to be super paranoid about formatting...
+\setlength\paperheight {11in}
+\setlength\paperwidth  {8.5in}
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\pagenumbering{gobble}
+
+\pagestyle{fancy}
+\renewcommand{\paragraph}[1]{\medskip \noindent {\bf #1}}
+
+%\lhead{University of Toronto}
+\lhead{\titleText}
+%\chead{...}
+\rhead{\authorName}
+
+\input{content}
+
+\bibliographystyle{IEEEtranS}
+\bibliography{refs,confs}
+
+\end{document}
