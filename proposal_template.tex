@@ -5,15 +5,16 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{color}
-\usepackage{comment}
 \usepackage{xspace}
 \usepackage{hyphenat} %Use this instead of a hyphen to allow the word itself to be hyphenated
 \usepackage{paralist}
 \usepackage[shortlabels,inline]{enumitem}
 \usepackage{mathptmx}
 %\usepackage{titlesec}
-\usepackage[sort,nocompress]{cite} % autosort groups of citations
 \usepackage{lipsum} % TODO Remove this. It's just for the template
+
+\definecolor{lcolor}{RGB}{0, 56, 186} % {0, 35, 102}
+\usepackage[pdfa,breaklinks=true,colorlinks,linkcolor=lcolor,citecolor=lcolor,urlcolor=lcolor]{hyperref}
 
 \newcommand{\titleText}{
     A Repo Template for Single-Column Proposals
@@ -27,6 +28,22 @@
 }
 
 \setlist*[enumerate,1]{label=\begingroup\itshape(\roman*)\endgroup}
+
+\newcommand{\bibliofont}{\footnotesize}
+\usepackage[
+  style=ieee,
+  sorting=nty,
+  sortcites=true,
+  hyperref=true,
+  backend=biber,
+  mincrossrefs=10000000,
+  maxbibnames=50
+  ]{biblatex}
+\renewcommand*{\bibfont}{\footnotesize}
+
+\addbibresource{refs.bib}
+\addbibresource{confs.bib}
+
 
 \begin{document}
 
@@ -48,8 +65,5 @@
 \rhead{\authorName}
 
 \input{content}
-
-\bibliographystyle{IEEEtranS}
-\bibliography{refs,confs}
-
+\printbibliography
 \end{document}

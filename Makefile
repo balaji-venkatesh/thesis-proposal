@@ -9,7 +9,7 @@ default: paper
 
 paper: Makefile
 	echo all | pdflatex $(LATEX_OPTS) $(PAPER_NAME)
-	bibtex -min-crossrefs=30000 $(PAPER_NAME)
+	biber $(PAPER_NAME)
 	echo all | pdflatex $(LATEX_OPTS) $(PAPER_NAME)
 	echo all | pdflatex $(LATEX_OPTS) $(PAPER_NAME)
 	echo all | pdflatex $(LATEX_OPTS) $(PAPER_NAME)
