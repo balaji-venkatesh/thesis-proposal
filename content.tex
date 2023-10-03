@@ -1,10 +1,14 @@
-\section*{Introduction}
+This project is the convergence of two directions -- innovations in relaxed-priority belief propagation (BP), and hardware support for priority-ordered irregular algorithms. BP is an algorithm used to compute statistical inferences on graphs called "belief networks", where random variables form nodes, and a probability mass function forms edges. Applications include stereo image processing, workplace safety, and eee~\cite{Yan_Yang_Yang_Zhao_2023, Chen_McCabe_Hyatt_2017}. Given a set of random variables ${X_1 \ldots X_n}$, related to each other through a joint probability mass function $p(x`)$, BP will find the marginal distributions of all the variables, $P(X_i)$. Messages about random variable estimates are passed to neighboring nodes, allowing updates to propagate through the network until convergence. BP is approximate, as there is no analytic solution when there are loops \cite{Bishop_2006}.
 
-Computing has a long history~\cite{vonneumann:45:edvac,vonneumann:annals93:edvac}.
-\lipsum[2-4]
+\[ P_{X_i}(x_i) = \sum_{x`:x`_i=x_i} p(x`) \]
 
+With compute-intensive bulk-synchronous techniques, convergence fails with respect to time and model size. However, ordered asynchronous residual propagation improves performance and convergence~\cite{Elidan_McGraw_Koller_2012}. Relaxed ordering has lower priority queue overhead, resulting in greater parallelism while maintaining convergence~\cite{Aksenov_Alistarh_Korhonen_2021}. This is the software optimization limit for BP on standard multi-core processors, as its graphical nature and on-the-fly prioritization makes prediction difficult. Swarm~\cite{Jeffrey_2019} and Chronos~\cite{Abeydeera_Sanchez_2020} have
+developed a highly parallel architecture for ordered irregular task-based workloads on reconfigurable computing fabric. They make use of ordering, space awareness, and speculation to parallelize tasks with less overhead. 
 
-\section*{Objectives}
+\section*{Research Objectives and Methodology}
 
-The proposed thesis will revolutionize everything.
-\lipsum[5-6]
+This project is a continuation of a previous EngSci thesis~\cite{Han_2023}. The aim is an easily implementable efficient BP accelerator, bringing together relaxed-priority BP and speculative priority-ordered parallel hardware. Initial work involves the RISC-V soft processors used as processing units in Chronos, which will be updated with new hardened floating point arithmetic units. After successful use of soft processors, a hard processor will be developed and tested in order to achieve further acceleration. Tuning and other changes then need to be made to Chronos in order to scale without overloading queues. Finally, the system needs to be optimized for performance and area effectiveness. 
+
+\section*{Significance}
+
+A successful project would result in an easily implementable BP accelerator that could be used to compute much larger workloads than is currently possible without expensive hardware implementations, resulting in accessible BP acceleration for new workloads. As mentioned earlier, BP has applications in various fields. Whether the application is image processing or workplace safety, this work would allow users to compute larger graphs, allowing them to take more factors into account and be more precise when designing intermediate factors.

@@ -1,6 +1,5 @@
 \documentclass[12pt,conference,onecolumn]{IEEEtran}
-% N.B. your proposal's formatting requirements may differ
-\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage[letterpaper, margin=1in, includehead]{geometry}
 \usepackage{times}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
@@ -10,60 +9,44 @@
 \usepackage{paralist}
 \usepackage[shortlabels,inline]{enumitem}
 \usepackage{mathptmx}
-%\usepackage{titlesec}
-\usepackage{lipsum} % TODO Remove this. It's just for the template
 
-\definecolor{lcolor}{RGB}{0, 56, 186} % {0, 35, 102}
+\definecolor{lcolor}{RGB}{0, 56, 186}
 \usepackage[pdfa,breaklinks=true,colorlinks,linkcolor=lcolor,citecolor=lcolor,urlcolor=lcolor]{hyperref}
 
-\newcommand{\titleText}{
-    A Repo Template for Single-Column Proposals
-}
-\newcommand{\authorName}{Alyssa P. Hacker}
-
-
 \pdfinfo{
-    /Author (\authorName)
-    /Title  (\titleText)
+    /Author (Balaji Venkatesh)
+    /Title  (ECE499 Thesis Proposal --- Belief Propagation Accelerator)
 }
 
 \setlist*[enumerate,1]{label=\begingroup\itshape(\roman*)\endgroup}
 
-\newcommand{\bibliofont}{\footnotesize}
 \usepackage[
   style=ieee,
-  sorting=nty,
   sortcites=true,
   hyperref=true,
   backend=biber,
   mincrossrefs=10000000,
-  maxbibnames=50
-  ]{biblatex}
-\renewcommand*{\bibfont}{\footnotesize}
+]{biblatex}
 
 \addbibresource{refs.bib}
 \addbibresource{confs.bib}
 
-
 \begin{document}
 
 % Just to be super paranoid about formatting...
-\setlength\paperheight {11in}
-\setlength\paperwidth  {8.5in}
-\special{papersize=8.5in,11in}
-\setlength{\pdfpageheight}{\paperheight}
-\setlength{\pdfpagewidth}{\paperwidth}
 
 \pagenumbering{gobble}
 
 \pagestyle{fancy}
 \renewcommand{\paragraph}[1]{\medskip \noindent {\bf #1}}
 
-%\lhead{University of Toronto}
-\lhead{\titleText}
-%\chead{...}
-\rhead{\authorName}
+\lhead{ECE499 Thesis Proposal}
+\chead{Belief Propagation Accelerator}
+\rhead{Balaji Venkatesh}
 
 \input{content}
-\printbibliography
+
+\newpage
+
+\printbibliography{}
 \end{document}
